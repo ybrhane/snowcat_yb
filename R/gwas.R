@@ -575,7 +575,7 @@ run.gwas.logistic = function(
   message("SNPs without ancestry estimate, head: ", sum(info$POS < mspinfo$spos[1]));
   message("SNPs without ancestry estimate, tail: ", sum(info$POS > tail(mspinfo$epos,1)));
 
-  
+  if(FALSE){
   # Orthonormalize covariates
   {
     message("Orthonormalizing covariates");
@@ -586,7 +586,7 @@ run.gwas.logistic = function(
     cvrtqr = qr.Q(q);
     rm(q);
   } # cvrtqr
-
+  }
   
   #### Get ready for the main loop ####
   
@@ -597,7 +597,7 @@ run.gwas.logistic = function(
   } # ind1, ind2
 
   # Residualize the phenotype
-  cc1 = phenotype - cvrtqr %*% crossprod(cvrtqr, phenotype);
+  #cc1 = phenotype - cvrtqr %*% crossprod(cvrtqr, phenotype);
   # cc1 = cc1 / sqrt(crossprod(cc1))
 
   #--- @YB update ---#
