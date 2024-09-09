@@ -601,7 +601,7 @@ run.gwas.logistic = function(
   # cc1 = cc1 / sqrt(crossprod(cc1))
 
   #--- @YB update ---#
-  cc = phenotype
+  cc = phenotype;
 
   # Create output files
   {
@@ -783,7 +783,7 @@ run.gwas.logistic = function(
      #--- @YB update ---#
       #md = glm(cc ~ 0 + matmat + pcs1, family = "binomial");
       md = glm(cc ~ 0 + matmat + cvrt, family = "binomial");
-      md0 = glm(cc ~ 0 + cvrt, family = "binomial")
+      md0 = glm(cc ~ 0 + cvrt, family = "binomial");
       ms = summary(md);
       # ms$coefficients
       
@@ -795,8 +795,9 @@ run.gwas.logistic = function(
       an = anova(md0, md, test = "LRT");
       pvf = an$`Pr(>Chi)`[2];
       fff = an$Deviance[2];
-      R2 = rep(NA,length(fff))
-  
+      #R2 = rep(NA,length(fff));
+      R2 = fff;
+
       # Run linear regression
       if (FALSE){
       X = matmat - cvrtqr %*% crossprod(cvrtqr, matmat);
