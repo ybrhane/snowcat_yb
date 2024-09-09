@@ -1,6 +1,7 @@
 export(
     "convertVCFtoFilematrix",
-    "run.gwas.linear"
+    "run.gwas.linear",
+    "run.gwas.logistic"
 )
 
 importFrom("filematrix",
