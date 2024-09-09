@@ -783,6 +783,7 @@ run.gwas.logistic = function(
      #--- @YB update ---#
       #md = glm(cc ~ 0 + matmat + pcs1, family = "binomial");
       md = glm(cc ~ 0 + matmat + cvrt, family = "binomial");
+      md0 = glm(cc ~ 0 + cvrt, family = "binomial")
       ms = summary(md);
       # ms$coefficients
       
