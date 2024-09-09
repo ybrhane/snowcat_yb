@@ -14,8 +14,8 @@ Description: A complete toolset for
         as estimated with RFMIX.
         It follows the model originally introduced by
         Elizabeth G. Atkinson in the TRACTOR pipeline.
-URL: https://github.com/andreyshabalin/snowcat/
-BugReports: https://github.com/andreyshabalin/snowcat/issues
+URL: https://github.com/ybrhane/snowcatyb/
+BugReports: https://github.com/ybrhane/snowcatyb/issues
 License: LGPL-3
 LazyLoad: yes
 NeedsCompilation: no
