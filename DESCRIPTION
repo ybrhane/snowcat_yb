@@ -1,4 +1,4 @@
-Package: snowcat_yb
+Package: snowcatyb
 Type: Package
 Title: SNOWCAT: GWAS with Local Ancestry Correction
 Version: 0.9
