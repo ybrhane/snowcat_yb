@@ -785,7 +785,7 @@ run.gwas.logistic = function(
       md = glm(cc ~ 0 + matmat + cvrt, family = "binomial");
       md0 = glm(cc ~ 0 + cvrt, family = "binomial");
       ms = summary(md);
-      print(ms)
+      message(capture.output(ms))
       # ms$coefficients
       
       beta  = ms$coefficients[seq_along(keepset5),1];
