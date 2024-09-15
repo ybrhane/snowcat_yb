@@ -785,7 +785,7 @@ run.gwas.logistic = function(
       md = glm(cc ~ 0 + matmat + cvrt, family = "binomial");
       md0 = glm(cc ~ 0 + cvrt, family = "binomial");
       ms = summary(md);
-      message(capture.output(ms))
+      #message(capture.output(ms))
       # ms$coefficients
       
       beta  = ms$coefficients[seq_along(keepset5),1];
@@ -798,38 +798,6 @@ run.gwas.logistic = function(
       fff = an$Deviance[2];
       #R2 = rep(NA,length(fff));
       R2 = fff;
-
-      # Run linear regression
-      if (FALSE){
-      X = matmat - cvrtqr %*% crossprod(cvrtqr, matmat);
-      XY = crossprod(X, cc1);
-      XX = crossprod(X);
-  
-      XX1 = solve(XX);
-      XX1XY = XX1 %*% XY; # beta
-      # XX1XY = solve(XX, XY);
-  
-      # se = sqrt(c(sig2) * diag(XX1));
-  
-      TSS = crossprod(cc1); # TSS = 1;
-      RSS = crossprod(XY, XX1XY);
-      R2 = RSS/TSS
-      # R2 = crossprod(XY, XX1XY);
-  
-      dfFull = Nsam - ncol(cvrtqr) - ncol(matmat);
-      nVarTested = ncol(matmat);
-  
-      fff = R2 / (1 - R2) * dfFull / nVarTested;
-      pvf = pf(fff, nVarTested, dfFull, lower.tail = FALSE)
-  
-      beta = XX1XY[seq_along(keepset5)];
-      sig2 = (TSS - RSS)/(dfFull - nVarTested);
-      se = sqrt(c(sig2) * diag(XX1) * ((dfFull - nVarTested) / dfFull))[seq_along(keepset5)];
-      tstat = beta/se;
-      pv5 = pt(abs(tstat), df = dfFull, lower.tail = FALSE)*2;
-      #
-      # as.matrix(rownames(fmo))
-      }
   
       out = double(nrow(fmo));
       out[1] = chr;
